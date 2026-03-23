@@ -1,0 +1,57 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="90" x2="1440" y2="810" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13233F"/>
+      <stop offset="0.5" stop-color="#101A31"/>
+      <stop offset="1" stop-color="#1E1634"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="264" y1="170" x2="1260" y2="740" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF9E7A"/>
+      <stop offset="0.28" stop-color="#FFE27A"/>
+      <stop offset="0.58" stop-color="#87F0C9"/>
+      <stop offset="0.82" stop-color="#7CCFFF"/>
+      <stop offset="1" stop-color="#C9B3FF"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="230" y1="525" x2="1382" y2="525" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF8FB2"/>
+      <stop offset="0.33" stop-color="#FFD56E"/>
+      <stop offset="0.66" stop-color="#76E6D3"/>
+      <stop offset="1" stop-color="#8DBBFF"/>
+    </linearGradient>
+    <filter id="glow" x="155" y="95" width="1290" height="710" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="28" result="blur"/>
+      <feBlend in="SourceGraphic" in2="blur" mode="screen"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" rx="32" fill="url(#bg)"/>
+  <circle cx="1266" cy="164" r="132" fill="#68C9FF" fill-opacity="0.16"/>
+  <circle cx="322" cy="740" r="180" fill="#FF9E7A" fill-opacity="0.12"/>
+  <g opacity="0.9">
+    <rect x="168" y="138" width="1264" height="624" rx="30" fill="white" fill-opacity="0.03" stroke="white" stroke-opacity="0.12"/>
+    <rect x="228" y="196" width="422" height="280" rx="24" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.1"/>
+    <rect x="710" y="196" width="472" height="86" rx="18" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.1"/>
+    <rect x="710" y="306" width="472" height="86" rx="18" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.1"/>
+    <rect x="710" y="416" width="472" height="86" rx="18" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.1"/>
+    <rect x="228" y="530" width="954" height="150" rx="24" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.1"/>
+  </g>
+  <g filter="url(#glow)">
+    <path d="M234 583C290 553 350 545 408 555C466 565 523 592 582 595C640 598 696 577 756 556C815 536 878 516 936 520C994 524 1048 551 1103 561C1159 571 1214 565 1366 519" stroke="url(#wave)" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <path d="M226 639C291 619 352 617 410 627C468 637 525 661 583 662C640 662 698 638 758 619C818 600 883 586 940 591C998 596 1052 620 1106 628C1161 637 1215 630 1374 591" stroke="white" stroke-opacity="0.22" stroke-width="5" stroke-linecap="round"/>
+  <g opacity="0.9">
+    <rect x="254" y="224" width="130" height="26" rx="13" fill="#7CCFFF" fill-opacity="0.14" stroke="#7CCFFF" stroke-opacity="0.32"/>
+    <text x="279" y="242" fill="#9EDFFF" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="14" letter-spacing="2.4">SONGWRITING</text>
+    <text x="254" y="310" fill="url(#accent)" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="78" font-weight="700" letter-spacing="4">Suno</text>
+    <text x="254" y="368" fill="#EAF3FF" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="30" font-weight="600">作曲 / 作詞イメージ</text>
+    <text x="254" y="416" fill="#B8C7DD" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="24">歌詞とテーマから曲調を設計し、</text>
+    <text x="254" y="452" fill="#B8C7DD" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="24">MV全体の温度感を固める。</text>
+    <text x="736" y="250" fill="#EAF3FF" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="24" font-weight="600">Keyword</text>
+    <text x="736" y="360" fill="#EAF3FF" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="24" font-weight="600">Lyric Motif</text>
+    <text x="736" y="470" fill="#EAF3FF" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="24" font-weight="600">Style Prompt</text>
+    <text x="872" y="250" fill="#B8C7DD" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="24">Prism / Future / Monochrome</text>
+    <text x="872" y="360" fill="#B8C7DD" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="24">Distance / Resonance / Light</text>
+    <text x="872" y="470" fill="#B8C7DD" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="24">Transparent synth-pop / cinematic</text>
+    <text x="258" y="588" fill="#EAF3FF" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="22" font-weight="600">Wave Sketch</text>
+    <text x="258" y="622" fill="#B8C7DD" font-family="'Avenir Next', 'Yu Gothic', sans-serif" font-size="22">作曲と作詞が同時に立ち上がるイメージを抽象化したビジュアル</text>
+  </g>
+</svg>

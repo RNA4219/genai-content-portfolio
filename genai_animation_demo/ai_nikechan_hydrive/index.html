@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYDRIVE | AIニケちゃん MV</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #070b14;
+            --panel: rgba(11, 18, 33, 0.78);
+            --panel-strong: rgba(14, 23, 42, 0.92);
+            --line: rgba(181, 214, 255, 0.16);
+            --line-strong: rgba(255, 255, 255, 0.26);
+            --text: #eef4ff;
+            --muted: rgba(238, 244, 255, 0.7);
+            --soft: rgba(238, 244, 255, 0.5);
+            --cyan: #7dd3fc;
+            --blue: #60a5fa;
+            --mint: #8cf5d2;
+            --peach: #ffb294;
+            --glow: linear-gradient(135deg, rgba(125, 211, 252, 0.32), rgba(255, 178, 148, 0.2), rgba(96, 165, 250, 0.28));
+            --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --content-width: 1180px;
+            --font-body: "BIZ UDPGothic", "Yu Gothic UI", "Hiragino Sans", "Meiryo", sans-serif;
+            --font-display: "Avenir Next", "Yu Gothic UI", "Hiragino Sans", "Meiryo", sans-serif;
+        }
+        html { scroll-behavior: smooth; }
+        :target {
+            scroll-margin-top: 112px;
+        }
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(125, 211, 252, 0.16), transparent 32%),
+                radial-gradient(circle at 85% 18%, rgba(255, 178, 148, 0.12), transparent 24%),
+                linear-gradient(180deg, #050914 0%, #09101d 40%, #050914 100%);
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+            overflow-x: hidden;
+        }
+        body::before, body::after {
+            content: "";
+            position: fixed;
+            width: 42vw;
+            height: 42vw;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(90px);
+            opacity: 0.28;
+            z-index: -2;
+        }
+        body::before { top: -10vw; left: -8vw; background: rgba(96, 165, 250, 0.32); }
+        body::after { bottom: -16vw; right: -8vw; background: rgba(255, 178, 148, 0.22); }
+        a { color: inherit; text-decoration: none; }
+        img { display: block; max-width: 100%; }
+        .prism-particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .prism-particle {
+            position: absolute;
+            bottom: -24px;
+            width: 9px;
+            height: 9px;
+            opacity: 0;
+            border-radius: 3px;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            background: linear-gradient(135deg, rgba(255, 102, 148, 0.92), rgba(255, 206, 120, 0.96), rgba(134, 243, 187, 0.92), rgba(127, 221, 252, 0.96), rgba(196, 167, 255, 0.9));
+            background-size: 220% 220%;
+            box-shadow:
+                0 0 14px rgba(127, 221, 252, 0.28),
+                0 0 18px rgba(255, 124, 163, 0.12);
+            animation: prism-rise linear infinite, prism-shift ease-in-out infinite;
+        }
+        .prism-particle:nth-child(1) { left: 6%; animation-duration: 16s; animation-delay: -2s; transform: scale(0.7); }
+        .prism-particle:nth-child(2) { left: 14%; animation-duration: 19s; animation-delay: -8s; transform: scale(0.55); }
+        .prism-particle:nth-child(3) { left: 22%; animation-duration: 17s; animation-delay: -11s; transform: scale(0.6); }
+        .prism-particle:nth-child(4) { left: 31%; animation-duration: 21s; animation-delay: -5s; transform: scale(0.8); }
+        .prism-particle:nth-child(5) { left: 40%; animation-duration: 18s; animation-delay: -14s; transform: scale(0.5); }
+        .prism-particle:nth-child(6) { left: 49%; animation-duration: 23s; animation-delay: -6s; transform: scale(0.75); }
+        .prism-particle:nth-child(7) { left: 57%; animation-duration: 20s; animation-delay: -15s; transform: scale(0.65); }
+        .prism-particle:nth-child(8) { left: 66%; animation-duration: 24s; animation-delay: -10s; transform: scale(0.58); }
+        .prism-particle:nth-child(9) { left: 74%; animation-duration: 18s; animation-delay: -4s; transform: scale(0.72); }
+        .prism-particle:nth-child(10) { left: 82%; animation-duration: 22s; animation-delay: -13s; transform: scale(0.62); }
+        .prism-particle:nth-child(11) { left: 89%; animation-duration: 17s; animation-delay: -7s; transform: scale(0.54); }
+        .prism-particle:nth-child(12) { left: 94%; animation-duration: 20s; animation-delay: -16s; transform: scale(0.68); }
+        .prism-particle:nth-child(odd) { animation-duration: 18s, 7.2s; }
+        .prism-particle:nth-child(even) { animation-duration: 21s, 9.4s; }
+        @keyframes prism-rise {
+            0% {
+                transform: translate3d(0, 0, 0) scale(var(--scale, 1)) rotate(0deg);
+                opacity: 0;
+            }
+            12% {
+                opacity: 0.34;
+            }
+            50% {
+                transform: translate3d(18px, -52vh, 0) scale(var(--scale, 1)) rotate(120deg);
+                opacity: 0.24;
+            }
+            88% {
+                opacity: 0.12;
+            }
+            100% {
+                transform: translate3d(-12px, -108vh, 0) scale(var(--scale, 1)) rotate(280deg);
+                opacity: 0;
+            }
+        }
+        @keyframes prism-shift {
+            0% {
+                background-position: 0% 50%;
+                filter: hue-rotate(0deg) saturate(1.05);
+            }
+            50% {
+                background-position: 100% 50%;
+                filter: hue-rotate(28deg) saturate(1.3);
+            }
+            100% {
+                background-position: 0% 50%;
+                filter: hue-rotate(0deg) saturate(1.08);
+            }
+        }
+        .shell { width: min(var(--content-width), calc(100% - 32px)); margin: 0 auto; }
+        header.hero,
+        main section {
+            scroll-margin-top: 112px;
+        }
+        .site-nav {
+            position: sticky; top: 14px; z-index: 20;
+            width: min(var(--content-width), calc(100% - 32px));
+            margin: 16px auto 0; padding: 14px 18px;
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            border: 1px solid var(--line); background: rgba(7, 11, 20, 0.72);
+            backdrop-filter: blur(18px); border-radius: 999px; box-shadow: var(--shadow);
+        }
+        .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+        .brand-mark {
+            width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%;
+            background: var(--glow); border: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 0.78rem; letter-spacing: 0.08em;
+        }
+        .brand-copy strong { display: block; font-size: 0.95rem; letter-spacing: 0.16em; }
+        .brand-copy span { display: block; font-size: 0.72rem; color: var(--soft); letter-spacing: 0.08em; }
+        .nav-links { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+        .nav-links a { padding: 10px 14px; border-radius: 999px; color: var(--muted); font-size: 0.9rem; transition: 0.25s ease; }
+        .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); background: rgba(255, 255, 255, 0.06); outline: none; }
+        .nav-links .cta { color: #06101d; background: linear-gradient(135deg, var(--mint), var(--cyan)); font-weight: 600; }
+        header.hero { padding: 64px 0 24px; }
+        .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(340px, 1fr); gap: 28px; align-items: stretch; }
+        .hero-copy, .hero-media {
+            position: relative; overflow: hidden; border-radius: var(--radius-xl); border: 1px solid var(--line);
+            background: var(--panel); backdrop-filter: blur(18px); box-shadow: var(--shadow);
+        }
+        .hero-copy { padding: clamp(28px, 5vw, 56px); min-height: 100%; }
+        .hero-copy::before, .hero-media::before, .section-card::before, .gallery-card::before, .timeline-card::before, .stack-card::before {
+            content: ""; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 38%);
+            pointer-events: none;
+        }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px;
+            border: 1px solid rgba(125, 211, 252, 0.24); background: rgba(125, 211, 252, 0.08);
+            color: var(--cyan); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .hero h1 { margin-top: 0; font-size: clamp(3rem, 7vw, 5.4rem); line-height: 0.95; letter-spacing: 0.05em; font-weight: 700; }
+        .hero h1,
+        .section-head h2,
+        .timeline-body h3,
+        .stack-card h3,
+        .gallery-copy strong,
+        .flow-card h3,
+        .file-card h3 {
+            font-family: var(--font-display);
+        }
+        .hero h1 span {
+            display: block; color: transparent;
+            background: linear-gradient(135deg, #f8fbff 10%, #89e4ff 38%, #b5b8ff 62%, #ffccb9 92%);
+            -webkit-background-clip: text; background-clip: text;
+        }
+        .hero-lead { margin-top: 24px; max-width: 40rem; color: var(--muted); font-size: 1.04rem; line-height: 2; }
+        .hero-summary { margin-top: 26px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+        .summary-card {
+            padding: 16px; border-radius: var(--radius-md); background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .summary-card strong { display: block; font-size: 0.78rem; color: var(--soft); letter-spacing: 0.1em; text-transform: uppercase; }
+        .summary-card span { display: block; margin-top: 8px; font-size: 1rem; }
+        .hero-actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+        .button {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 18px;
+            border-radius: 999px; border: 1px solid transparent; font-weight: 600;
+            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+        .button:hover, .button:focus-visible { transform: translateY(-2px); outline: none; }
+        .button-primary { background: linear-gradient(135deg, var(--mint), var(--cyan)); color: #03111f; }
+        .button-secondary { border-color: rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.04); color: var(--text); }
+        .hero-media { padding: 18px; display: grid; gap: 16px; }
+        .media-frame {
+            position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 18px; background: #02060d;
+            border: 1px solid var(--line-strong);
+        }
+        .media-link {
+            position: absolute;
+            inset: 0;
+            display: block;
+        }
+        .media-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.02);
+        }
+        .media-link::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(5, 9, 20, 0.14), rgba(5, 9, 20, 0.74));
+        }
+        .play-badge {
+            position: absolute;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 12px;
+        }
+        .play-badge strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .play-badge span {
+            color: rgba(238, 244, 255, 0.82);
+            font-size: 0.92rem;
+        }
+        .play-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: rgba(125, 211, 252, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(10px);
+            flex-shrink: 0;
+        }
+        .play-icon::before {
+            content: "";
+            margin-left: 4px;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 18px solid #eef4ff;
+        }
+        .media-caption {
+            display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap;
+            padding: 16px 18px; border-radius: 18px; background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .media-caption strong { display: block; font-size: 1rem; }
+        .media-caption span { color: var(--muted); font-size: 0.92rem; }
+        .media-meta {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .meta-chip {
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .meta-chip strong {
+            display: block;
+            color: var(--soft);
+            font-size: 0.76rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .meta-chip span {
+            display: block;
+            margin-top: 6px;
+            font-size: 1rem;
+        }
+        .audio-card {
+            padding: 18px; border-radius: 18px;
+            background: linear-gradient(180deg, rgba(125, 211, 252, 0.12), rgba(255, 255, 255, 0.03));
+            border: 1px solid rgba(125, 211, 252, 0.18);
+        }
+        .audio-card h2 { font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .audio-card p { margin-top: 8px; color: var(--muted); font-size: 0.94rem; }
+        audio { width: 100%; margin-top: 14px; filter: saturate(1.2) contrast(1.02); }
+        .audio-links {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        main section { padding: 38px 0; }
+        .section-head { display: flex; justify-content: space-between; gap: 18px; align-items: end; margin-bottom: 22px; }
+        .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.7rem); line-height: 1.1; letter-spacing: 0.04em; }
+        .section-head p { max-width: 46rem; color: var(--muted); line-height: 1.92; }
+        .section-card {
+            position: relative; overflow: hidden; padding: 28px; border-radius: var(--radius-xl);
+            border: 1px solid var(--line); background: var(--panel); box-shadow: var(--shadow);
+        }
+        .overview-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr); gap: 22px; }
+        .overview-copy p + p { margin-top: 14px; color: var(--muted); }
+        .quote-box {
+            padding: 24px; border-radius: 22px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(125, 211, 252, 0.06));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .quote-box strong { display: block; margin-bottom: 10px; color: var(--cyan); font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; }
+        .quote-box p { color: var(--text); font-size: 1.03rem; }
+        .highlight-list { margin-top: 18px; display: grid; gap: 12px; }
+        .highlight-list div {
+            padding: 14px 16px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .highlight-list strong { display: block; margin-bottom: 4px; font-size: 0.95rem; }
+        .highlight-list span { color: var(--muted); font-size: 0.92rem; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+        .gallery-card {
+            position: relative; overflow: hidden; border-radius: 22px; border: 1px solid var(--line);
+            background: var(--panel-strong); box-shadow: var(--shadow);
+        }
+        .gallery-card img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; }
+        .gallery-card object {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16 / 9;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .gallery-card--text {
+            display: flex;
+            align-items: end;
+            min-height: 100%;
+            aspect-ratio: 16 / 9;
+            padding: 22px;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)),
+                radial-gradient(circle at top left, rgba(125, 211, 252, 0.16), transparent 38%),
+                linear-gradient(135deg, rgba(255, 192, 120, 0.08), rgba(127, 221, 252, 0.08), rgba(196, 167, 255, 0.08));
+        }
+        .gallery-card--text .gallery-copy {
+            padding: 0;
+        }
+        .gallery-card--text .gallery-copy p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 0.94rem;
+            line-height: 1.75;
+        }
+        .gallery-copy { padding: 18px 20px 20px; }
+        .gallery-copy strong { display: block; font-size: 1.05rem; }
+        .gallery-copy span { display: block; margin-top: 8px; color: var(--muted); font-size: 0.94rem; line-height: 1.75; }
+        .process-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+        .timeline-card {
+            position: relative; overflow: hidden; display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 22px;
+            border-radius: 22px; background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow);
+        }
+        .timeline-index {
+            width: 54px; height: 54px; display: grid; place-items: center; border-radius: 18px;
+            background: linear-gradient(135deg, rgba(140, 245, 210, 0.18), rgba(96, 165, 250, 0.22));
+            border: 1px solid rgba(255, 255, 255, 0.14); font-weight: 700; letter-spacing: 0.08em;
+        }
+        .timeline-body h3 { font-size: 1.08rem; margin-bottom: 8px; }
+        .timeline-body p { color: var(--muted); font-size: 0.94rem; line-height: 1.85; }
+        .tool-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        .tool-row span {
+            padding: 7px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1); color: var(--soft); font-size: 0.78rem; letter-spacing: 0.04em;
+        }
+        .stack-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+        .stack-card {
+            position: relative; overflow: hidden; padding: 22px; min-height: 200px; border-radius: 22px;
+            border: 1px solid var(--line); background: var(--panel); box-shadow: var(--shadow);
+        }
+        .stack-card strong {
+            display: inline-flex; padding: 8px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.05);
+            color: var(--cyan); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+        }
+        .stack-card h3 { margin-top: 18px; font-size: 1.15rem; }
+        .stack-card p { margin-top: 10px; color: var(--muted); font-size: 0.94rem; line-height: 1.85; }
+        .stack-links {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .flow-grid,
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .flow-card,
+        .file-card {
+            position: relative;
+            overflow: hidden;
+            padding: 22px;
+            border-radius: 22px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            box-shadow: var(--shadow);
+        }
+        .flow-card::before,
+        .file-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 42%);
+            pointer-events: none;
+        }
+        .flow-step {
+            display: inline-flex;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: rgba(125, 211, 252, 0.08);
+            border: 1px solid rgba(125, 211, 252, 0.18);
+            color: var(--cyan);
+            font-size: 0.76rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .flow-card h3,
+        .file-card h3 {
+            margin-top: 16px;
+            font-size: 1.08rem;
+        }
+        .flow-card p,
+        .file-card p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 0.94rem;
+            line-height: 1.8;
+        }
+        .file-links {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .final-callout { margin-top: 10px; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr); gap: 20px; align-items: stretch; }
+        footer { padding: 26px 0 44px; color: var(--soft); text-align: center; font-size: 0.9rem; }
+        @media (max-width: 1080px) {
+            .hero-grid, .overview-grid, .final-callout { grid-template-columns: 1fr; }
+            .stack-grid, .flow-grid, .file-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 760px) {
+            .site-nav { position: static; border-radius: 26px; }
+            .nav-links { display: none; }
+            header.hero { padding-top: 24px; }
+            .hero-summary, .process-grid, .gallery-grid, .stack-grid, .flow-grid, .file-grid { grid-template-columns: 1fr; }
+            .timeline-card { grid-template-columns: 1fr; }
+            .timeline-index { width: 52px; height: 52px; }
+            .section-card, .hero-copy, .hero-media { padding: 22px; }
+            .section-head { flex-direction: column; align-items: start; }
+            .hero h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); }
+            .hero-lead { font-size: 0.98rem; line-height: 1.85; }
+            .hero-actions { flex-direction: column; }
+            .hero-actions .button { width: 100%; }
+            .media-caption { align-items: flex-start; }
+            .media-meta { grid-template-columns: 1fr; }
+            .play-badge { left: 18px; right: 18px; bottom: 18px; }
+            .play-icon { width: 58px; height: 58px; }
+            .eyebrow { margin-bottom: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="prism-particles" aria-hidden="true">
+        <span class="prism-particle" style="--scale:0.7;"></span>
+        <span class="prism-particle" style="--scale:0.55;"></span>
+        <span class="prism-particle" style="--scale:0.6;"></span>
+        <span class="prism-particle" style="--scale:0.8;"></span>
+        <span class="prism-particle" style="--scale:0.5;"></span>
+        <span class="prism-particle" style="--scale:0.75;"></span>
+        <span class="prism-particle" style="--scale:0.65;"></span>
+        <span class="prism-particle" style="--scale:0.58;"></span>
+        <span class="prism-particle" style="--scale:0.72;"></span>
+        <span class="prism-particle" style="--scale:0.62;"></span>
+        <span class="prism-particle" style="--scale:0.54;"></span>
+        <span class="prism-particle" style="--scale:0.68;"></span>
+    </div>
+    <nav class="site-nav">
+        <div class="brand">
+            <div class="brand-mark">MV</div>
+            <div class="brand-copy">
+                <strong>HYDRIVE</strong>
+                <span>AIニケちゃん Music Video</span>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#watch">視聴</a>
+            <a href="#overview">世界観</a>
+            <a href="#gallery">ビジュアル</a>
+            <a href="#process">制作工程</a>
+            <a href="#stack">AIツール</a>
+            <a class="cta" href="https://youtu.be/R8aXPHE0WUA" target="_blank" rel="noopener noreferrer">YouTubeで見る</a>
+        </div>
+    </nav>
+
+    <header class="hero shell" id="watch">
+        <div class="hero-grid">
+            <div class="hero-copy">
+                <div class="eyebrow">AI Music Video / Hydrive</div>
+                <h1><span>HYDRIVE</span></h1>
+                <p class="hero-lead">
+                    モノクロームの静寂から、偏光する未来都市へ。
+                    「AIニケちゃん」を軸に、音楽生成・絵コンテ化・映像生成・編集を横断して作り上げた
+                    SFアニメMVの制作ページです。
+                </p>
+                <div class="hero-summary">
+                    <div class="summary-card">
+                        <strong>Music</strong>
+                        <span>Sunoで楽曲生成と方向性設計</span>
+                    </div>
+                    <div class="summary-card">
+                        <strong>Visual</strong>
+                        <span>GeminiとSora 2で絵と動きを構築</span>
+                    </div>
+                    <div class="summary-card">
+                        <strong>Edit</strong>
+                        <span>カット抽出と編集でMVへ統合</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="https://youtu.be/R8aXPHE0WUA" target="_blank" rel="noopener noreferrer">YouTubeを開く</a>
+                    <a class="button button-secondary" href="#process">制作工程を見る</a>
+                </div>
+            </div>
+
+            <div class="hero-media">
+                <div class="media-frame">
+                    <a class="media-link" href="https://youtu.be/R8aXPHE0WUA" target="_blank" rel="noopener noreferrer" aria-label="HYDRIVE のMVをYouTubeで開く">
+                        <img src="mv-final-edit.png" alt="HYDRIVE MVのキービジュアル">
+                        <div class="play-badge">
+                            <div>
+                                <strong>HYDRIVE MV</strong>
+                                <span>YouTubeで1:23の完成版MVを再生</span>
+                            </div>
+                            <div class="play-icon" aria-hidden="true"></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="media-caption">
+                    <div>
+                        <strong>MV本編は外部再生に一本化</strong>
+                        <span>完成版MVをすぐ確認できるよう、<br>上段に再生導線を集約しています。</span>
+                    </div>
+                    <a class="button button-secondary" href="https://youtu.be/R8aXPHE0WUA" target="_blank" rel="noopener noreferrer">YouTubeで再生</a>
+                </div>
+                <div class="media-meta">
+                    <div class="meta-chip">
+                        <strong>MV尺</strong>
+                        <span>1:23</span>
+                    </div>
+                    <div class="meta-chip">
+                        <strong>Full Audio</strong>
+                        <span>4:17</span>
+                    </div>
+                </div>
+                <div class="audio-card">
+                    <h2>Full Audio Preview</h2>
+                    <p>こちらはフル尺のMP3です。<br>MV版とは尺が異なるため、1:23の映像版とは分けて明示しています。</p>
+                    <audio controls preload="metadata">
+                        <source src="hydrive-full-audio.mp3" type="audio/mpeg">
+                        お使いのブラウザは audio 要素に対応していません。
+                    </audio>
+                    <div class="audio-links">
+                        <a class="button button-secondary" href="https://suno.com/s/pYk2YFlG26i4GxNa" target="_blank" rel="noopener noreferrer">Sunoの楽曲ページ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="shell">
+        <section id="overview">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">World View</div>
+                    <h2>光と距離感で描く、<br>AIと人の物語</h2>
+                </div>
+                <p>
+                    ガラス質の未来都市、白黒から色へ移る映像変化、<br>触れられない存在同士の共鳴。
+                    HYDRIVEは、キャラクター性だけでなく<br>質感と空気感の設計まで含めて組み立てたMVです。
+                </p>
+            </div>
+            <div class="overview-grid">
+                <div class="section-card overview-copy">
+                    <p>
+                        作品の中心に置いたのは、シンギュラリティ後の都市に立つ「AIニケちゃん」。
+                        透明感のある都市構造と偏光の揺らぎを背景に、無機質さと情緒の間を行き来する映像体験を目指しました。
+                    </p>
+                    <p>
+                        そのため、単にツールを並べるのではなく、歌詞、楽曲、コンテ、絵コンテ、動画生成、編集までの流れを
+                        ひとつの演出設計としてつなぎ、世界観が途切れないようにしています。
+                    </p>
+                    <div class="highlight-list">
+                        <div>
+                            <strong>プリズム質感</strong>
+                            <span>透明感と屈折光で、冷たさの中に感情の余白を残す。</span>
+                        </div>
+                        <div>
+                            <strong>モノクロから彩度へ</strong>
+                            <span>感情の立ち上がりを、色の変化そのものとして見せる。</span>
+                        </div>
+                        <div>
+                            <strong>距離と共鳴</strong>
+                            <span>接触ではなく、音と光の同期で関係性を表現する。</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-card quote-box">
+                    <strong>Creative Intent</strong>
+                    <p>「触れられない存在でも、同じ光を見て同じビートに乗ることはできる」</p>
+                    <div class="highlight-list">
+                        <div>
+                            <strong>Scene Tone</strong>
+                            <span>冷たい建築とやわらかな感情が同居する映像温度を意識。</span>
+                        </div>
+                        <div>
+                            <strong>MV Structure</strong>
+                            <span>完成映像を見せた後に制作根拠へ入る、見やすい順番へ再設計。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Visual Assets</div>
+                    <h2>作曲から編集までの<br>制作遷移</h2>
+                </div>
+                <p>
+                    制作順に沿って、作曲、コンテ、絵コンテ、<br>映像生成、編集後の流れを追えるように整理しました。
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <article class="gallery-card">
+                    <object data="suno-songwriting-visual.svg" type="image/svg+xml" aria-label="Sunoでの作曲作詞イメージ"></object>
+                    <div class="gallery-copy">
+                        <strong>Sunoで作曲</strong>
+                        <span>歌詞とテーマをもとに曲の方向性を設計し、MV全体の基準になる音を先に固めています。</span>
+                    </div>
+                </article>
+                <article class="gallery-card">
+                    <object data="ai_nike_mv_storyboard_prompts_conte.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" aria-label="PDFコンテ"></object>
+                    <div class="gallery-copy">
+                        <strong>PDFコンテ作成</strong>
+                        <span>楽曲構成と歌詞展開をもとに、映像の流れをPDFコンテとして整理し、次工程の基準にしています。</span>
+                    </div>
+                </article>
+                <article class="gallery-card">
+                    <img src="storyboard-visual.png" alt="Geminiで作成した絵コンテ">
+                    <div class="gallery-copy">
+                        <strong>Geminiによる絵コンテ化</strong>
+                        <span>カット構成と画面密度を先に固め、動画生成の前提を整理。</span>
+                    </div>
+                </article>
+                <article class="gallery-card">
+                    <img src="Sora2_screenshot.png" alt="Sora 2で生成した映像のスクリーンショット">
+                    <div class="gallery-copy">
+                        <strong>Sora 2の映像生成</strong>
+                        <span>添付素材とカット指示をもとに、MV用の動きへ展開。</span>
+                    </div>
+                </article>
+                <article class="gallery-card">
+                    <img src="video-materials.png" alt="抽出した動画素材">
+                    <div class="gallery-copy">
+                        <strong>採用カットの抽出</strong>
+                        <span>生成結果から編集に耐えるショットを選別し、再配置に備える。</span>
+                    </div>
+                </article>
+                <article class="gallery-card">
+                    <img src="mv-final-edit.png" alt="編集後の映像">
+                    <div class="gallery-copy">
+                        <strong>最終編集後のトーン</strong>
+                        <span>楽曲に同期させながら速度感と感情曲線を整えて仕上げ。</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="flow">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Production Flow</div>
+                    <h2>制作導線を<br>上から順に追える構成</h2>
+                </div>
+                <p>
+                    完成版MVから入り、音源、資料、<br>制作工程へ順に追える流れにしています。
+                </p>
+            </div>
+            <div class="flow-grid">
+                <article class="flow-card">
+                    <div class="flow-step">Step 01</div>
+                    <h3>まずMVを見る</h3>
+                    <p>最上段のMVカードから、1:23の完成版映像をYouTubeで確認。<br>最終アウトプットを先に掴める導線です。</p>
+                </article>
+                <article class="flow-card">
+                    <div class="flow-step">Step 02</div>
+                    <h3>フル音源とSuno元曲を確認</h3>
+                    <p>同じ上段で4:17のフル尺MP3を試聴し、<br>その下のSunoリンクから作曲ソースにも直接アクセスできます。</p>
+                </article>
+                <article class="flow-card">
+                    <div class="flow-step">Step 03</div>
+                    <h3>絵と工程資料へ進む</h3>
+                    <p>中段のギャラリー、制作工程、ファイル導線から、<br>絵コンテ・動画素材・PDFコンテまで順に掘り下げられます。</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="files">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Project Files</div>
+                    <h2>素材ファイルも<br>辿れるように整理</h2>
+                </div>
+                <p>
+                    LPを見たあと、そのまま実ファイルへ移動できるようにしています。<br>確認やレビューにも使いやすい構成です。
+                </p>
+            </div>
+            <div class="file-grid">
+                <article class="file-card">
+                    <h3>音源と作曲元</h3>
+                    <p>フル尺MP3の試聴と、<br>Suno上の原曲ページの確認を同じ流れで行えます。</p>
+                    <div class="file-links">
+                        <a class="button button-secondary" href="hydrive-full-audio.mp3">MP3を開く</a>
+                        <a class="button button-secondary" href="https://suno.com/s/pYk2YFlG26i4GxNa" target="_blank" rel="noopener noreferrer">Sunoを開く</a>
+                    </div>
+                </article>
+                <article class="file-card">
+                    <h3>コンテ資料</h3>
+                    <p>PDFのコンテ資料を直接開いて、<br>テキストベースの構成検討まで遡れます。</p>
+                    <div class="file-links">
+                        <a class="button button-secondary" href="ai_nike_mv_storyboard_prompts_conte.pdf" target="_blank" rel="noopener noreferrer">PDFを開く</a>
+                    </div>
+                </article>
+                <article class="file-card">
+                    <h3>画像素材</h3>
+                    <p>絵コンテ、動画素材、最終編集後の静止画を<br>個別に確認できるようにしています。</p>
+                    <div class="file-links">
+                        <a class="button button-secondary" href="storyboard-visual.png" target="_blank" rel="noopener noreferrer">絵コンテ画像</a>
+                        <a class="button button-secondary" href="video-materials.png" target="_blank" rel="noopener noreferrer">動画素材画像</a>
+                        <a class="button button-secondary" href="mv-final-edit.png" target="_blank" rel="noopener noreferrer">編集後画像</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="process">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Making Process</div>
+                    <h2>企画からMV完成までの<br>10ステップ</h2>
+                </div>
+                <p>
+                    単発生成ではなく、テーマ設計から最終編集までの責任範囲が<br>見えるように工程を再編しています。
+                </p>
+            </div>
+            <div class="process-grid">
+                <article class="timeline-card"><div class="timeline-index">01</div><div class="timeline-body"><h3>テーマ決定</h3><p>AIニケちゃんと未来都市SFを軸に、<br>感情の温度差まで含めた方向性を定義。</p><div class="tool-row"><span>Creative Direction</span><span>Concept Design</span></div></div></article>
+                <article class="timeline-card"><div class="timeline-index">02</div><div class="timeline-body"><h3>作詞</h3><p>使用するキーワードと比喩を整理し、<br>世界観の核になる歌詞を作成。</p><div class="tool-row"><span>Lyrics Writing</span></div></div></article>
+                <article class="timeline-card"><div class="timeline-index">03</div><div class="timeline-body"><h3>作曲とスタイル設計</h3><p>Sunoでの生成を前提に、曲調・テンポ・空気感を<br>調整しながら複数案を制作。</p><div class="tool-row"><span>Suno</span><span>Music Generation</span></div></div></article>
+                <article class="timeline-card"><div class="timeline-index">04</div><div class="timeline-body"><h3>選定とエクスポート</h3><p>候補曲を比較し、MVの映像テンポと<br>最も相性の良いトラックを採用。</p><div class="tool-row"><span>Track Selection</span></div></div></article>
+                <article class="timeline-card"><div class="timeline-index">05</div><div class="timeline-body"><h3>音源調整</h3><p>映像編集しやすい尺感と抑揚へ整え、<br>MP3として確認可能な状態へ仕上げる。</p><div class="tool-row"><span>Audio Editing</span></div></div></article>
+                <article class="timeline-card"><div class="timeline-index">06</div><div class="timeline-body"><h3>コンテ作成</h3><p>歌詞の展開と楽曲構成に合わせて、映像の起伏を<br>設計するベースコンテを作成。</p><div class="tool-row"><span>Storyboarding</span></div></div></article>
+                <article class="timeline-card"><div class="timeline-index">07</div><div class="timeline-body"><h3>絵コンテ生成</h3><p>Gemini nanobananaで画面イメージを具体化し、<br>ショットの方向性を可視化。</p><div class="tool-row"><span>Gemini</span><span>Image Generation</span></div></div></article>
+                <article class="timeline-card"><div class="timeline-index">08</div><div class="timeline-body"><h3>動画生成</h3><p>Sora 2へ添付画像とカット指示を入力し、<br>一貫性のある映像断片を生成。</p><div class="tool-row"><span>Sora 2</span><span>Video Generation</span></div></div></article>
+                <article class="timeline-card"><div class="timeline-index">09</div><div class="timeline-body"><h3>カット抽出</h3><p>生成映像から使用可能なシーンだけを切り出し、<br>編集素材として整理。</p><div class="tool-row"><span>Shot Picking</span><span>Video Editing</span></div></div></article>
+                <article class="timeline-card"><div class="timeline-index">10</div><div class="timeline-body"><h3>編集と統合</h3><p>最終的に音と映像を同期させ、<br>MVとしての密度と没入感を仕上げる。</p><div class="tool-row"><span>Timeline Edit</span><span>Color Tuning</span></div></div></article>
+            </div>
+        </section>
+
+        <section id="stack">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Tech Stack</div>
+                    <h2>使用した<br>サービス・ソフト</h2>
+                </div>
+                <p>今回の制作で実際に使ったサービスとソフトを、役割とあわせて明記しています。<br>リンクがあるものはそのまま公式ページへ移動できます。</p>
+            </div>
+            <div class="stack-grid">
+                <article class="stack-card">
+                    <strong>Music</strong>
+                    <h3>Suno</h3>
+                    <p>歌詞とテーマから曲の骨格を生成し、<br>MV全体のリズム基準を作る役割を担当。</p>
+                    <div class="stack-links">
+                        <a class="button button-secondary" href="https://suno.com/" target="_blank" rel="noopener noreferrer">公式サイト</a>
+                    </div>
+                </article>
+                <article class="stack-card">
+                    <strong>Video</strong>
+                    <h3>Sora 2</h3>
+                    <p>添付画像と細かな演出指示をもとに、<br>実際の映像断片へ変換する主力ツール。</p>
+                    <div class="stack-links">
+                        <a class="button button-secondary" href="https://sora.chatgpt.com/" target="_blank" rel="noopener noreferrer">公式サイト</a>
+                    </div>
+                </article>
+                <article class="stack-card">
+                    <strong>Writing</strong>
+                    <h3>ChatGPT</h3>
+                    <p>企画整理、歌詞検討、構成案の言語化など、<br>制作全体の思考整理に活用。</p>
+                    <div class="stack-links">
+                        <a class="button button-secondary" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">公式サイト</a>
+                    </div>
+                </article>
+                <article class="stack-card">
+                    <strong>Storyboard</strong>
+                    <h3>Gemini nanobanana</h3>
+                    <p>文字ベースのコンテを視覚化し、<br>ショット設計の解像度を一段上げる工程で使用。</p>
+                    <div class="stack-links">
+                        <a class="button button-secondary" href="https://gemini.google.com/app?hl=ja" target="_blank" rel="noopener noreferrer">公式サイト</a>
+                    </div>
+                </article>
+                <article class="stack-card">
+                    <strong>Planning</strong>
+                    <h3>スプレッドシート</h3>
+                    <p>歌詞構成、ショット管理、工程の整理など、<br>制作進行の管理に使用。</p>
+                    <div class="stack-links">
+                        <a class="button button-secondary" href="https://docs.google.com/spreadsheets/" target="_blank" rel="noopener noreferrer">公式サイト</a>
+                    </div>
+                </article>
+                <article class="stack-card">
+                    <strong>Edit</strong>
+                    <h3>Clipchamp</h3>
+                    <p>動画素材の並び替え、尺調整、<br>最終的なMV編集の仕上げに使用。</p>
+                    <div class="stack-links">
+                        <a class="button button-secondary" href="https://clipchamp.com/ja/" target="_blank" rel="noopener noreferrer">公式サイト</a>
+                    </div>
+                </article>
+                <article class="stack-card">
+                    <strong>Image</strong>
+                    <h3>ペイント</h3>
+                    <p>簡易な画像確認や補助的な素材整理など、<br>ローカル作業の補完用途で使用。</p>
+                    <div class="stack-links">
+                        <a class="button button-secondary" href="https://www.microsoft.com/ja-jp/windows/paint" target="_blank" rel="noopener noreferrer">公式サイト</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <div class="final-callout">
+                <div class="section-card">
+                    <div class="eyebrow">Presentation</div>
+                    <h2 style="margin-top: 16px; font-size: clamp(1.7rem, 3vw, 2.4rem);">完成映像から制作背景へ自然につながる構成</h2>
+                    <p style="margin-top: 16px; color: var(--muted);">
+                        今回のLPでは、上部に完成形の映像とYouTube導線、<br>そしてMP3試聴を集約しました。
+                        そのうえで、世界観、ビジュアル推移、制作工程、技術構成へと流すことで、<br>見る人が迷わず作品全体を追えるページにしています。
+                    </p>
+                </div>
+                <div class="section-card">
+                    <div class="eyebrow">Assets</div>
+                    <div class="highlight-list" style="margin-top: 18px;">
+                        <div><strong>MP3同梱</strong><span>ローカル音源をそのまま試聴可能。</span></div>
+                        <div><strong>YouTube導線</strong><span>埋め込みと外部リンクの両方を上段に配置。</span></div>
+                        <div><strong>画像素材活用</strong><span>既存スクリーンショットをLPの流れに沿って再構成。</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="credit">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Credit</div>
+                    <h2>権利表記</h2>
+                </div>
+                <p>本ページ末尾に、公式サイトへの導線と<br>二次創作である旨を明記しています。</p>
+            </div>
+            <div class="final-callout">
+                <div class="section-card">
+                    <div class="eyebrow">Official Site</div>
+                    <h2 style="margin-top: 16px; font-size: clamp(1.7rem, 3vw, 2.2rem);">AIニケちゃん 公式サイト</h2>
+                    <p style="margin-top: 16px; color: var(--muted);">
+                        公式情報の確認先はこちらです。<br>作品やキャラクターの最新情報は公式サイトを参照してください。
+                    </p>
+                    <div class="file-links" style="margin-top: 18px;">
+                        <a class="button button-secondary" href="https://nikechan.com/" target="_blank" rel="noopener noreferrer">公式サイトを開く</a>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <div class="eyebrow">Notice</div>
+                    <div class="highlight-list" style="margin-top: 18px;">
+                        <div>
+                            <strong>※AIニケちゃんの二次創作</strong>
+                            <span>本ページおよび掲載内容は、AIニケちゃんを題材にした二次創作作品です。</span>
+                        </div>
+                        <div>
+                            <strong>原作者</strong>
+                            <span>ニケちゃん</span>
+                        </div>
+                        <div>
+                            <strong>X</strong>
+                            <span>@tegnike</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="shell">
+    </footer>
+</body>
+</html>
